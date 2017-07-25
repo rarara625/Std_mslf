@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<script type="text/javascript">
+	function check() {
+		var black = 0;
+		
+		if(form1.id.value == "") {
+			black = 1;
+		}
+		
+		if(form1.password.value == "") {
+			black = 1;
+		}
+		
+		if(form1.email.value == "") {
+			black = 1;
+		}
+		
+		if(black == 1) {
+			alert("모든 내용을 입력해 주세요.");
+			return false;
+		} else {
+			return true;
+		}
+	}
+	
+	function check_num(str) {
+		if(isNaN(str)) {
+			alert("숫자만 입력하세요.");
+			return "";
+		} else {
+			return str;
+		}
+	}
+	</script>
+	
+	<style type="text/css">
+		h3 {
+			text-align: center;
+		}
+		div {
+			display: table;
+			margin: 0 auto;
+		}
+		
+		label {
+			display: inline-block;
+			margin: 10px;
+		}
+		
+		label input {
+			display: inline-block;
+		}
+		
+		p {
+			text-align: center;
+		}
+	</style>
+	<title>회원 추가하기</title>
+</head>
+<body>
+	<h3>회원 추가</h3>
+		
+	<form action="insert.jsp" method="post" name="form1" onsubmit="return check();">
+		<div>
+			<label>
+				사용자 ID <input type="text" name="id">
+			</label><br>
+			<label>
+				암호 <input type="password" name="password" onkeyup="this.value=check_num(this.value)">
+			</label><br>
+			<label>
+				이름 <input type="text" name="name">
+			</label><br>
+			<label>
+				E-mail <input type="text" name="email">
+			</label><br>
+		</div>
+		<p>
+			<input type="submit" value="확인">
+			<input type="reset" value="다시작성">
+		</p>
+	</form>
+</body>
+</html>

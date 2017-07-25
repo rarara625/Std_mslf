@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		function check() {
+			var blank = 0;
+			
+			if (form1.id.value == "") {
+				blank = 1;
+			}
+			
+			if (form1.password.value == "") {
+				blank = 1;
+			}
+			
+			if (blank == 1) {
+				alert("빈란이 있습니다. 채워주세요.");
+				return false;
+			} else {
+				return true;
+			}
+		}
+	</script>
+	<style type="text/css">
+		div {
+			display: table;
+			margin: 0 auto;
+		}
+		
+		p {
+			text-align: center;
+		}
+		
+		label {
+			display: table-cell;
+			text-align: left;
+			padding: 5px 10px;
+		}
+	</style>
+	<meta charset="UTF-8">
+	<title>특정 레코드만 조회</title>
+</head>
+<body>
+	<div>
+		<p>회원의 사용자 ID와 암호를 입력하세요.</p>
+		<form action="select.jsp" method="post" name="form1" onsubmit="return check();">
+			<label>
+				사용자 ID <input type="text" name="id"><br>
+			</label>
+			<label>
+				암호 <input type="password" name="password"><br>
+			</label><br>
+			<div>
+				<input type="submit" value="조회">
+			</div>
+		</form>
+	</div>
+</body>
+</html>
