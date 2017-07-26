@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript">
+		function doSubmit() {
+			form = document.join;
+			if(!form.userid.value) {
+				alert('아이디를 입력하지 않았습니다.');
+				form.userid.focus();
+				return;
+			}
+
+			if(!form.username.value) {
+				alert('이름을 입력하지 않았습니다.');
+				form.username.focus();
+				return;
+			}
+			
+			if(!form.userpw.value) {
+				alert('비밀번호를 입력하지 않았습니다.');
+				form.userpw.focus();
+				return;
+			}
+			
+			if(form.userpw.value != form.pw_check.value) {
+				alert('비밀번호가 일치하지 않았습니다.');
+				form.userpw.value = "";
+				form.pw_check.value = "";
+				form.userpw.focus();
+				return;
+			}
+			
+			if(!form.sequre_no1.value || !form.sequre_no2.value) {
+				alert('주민등록번호를 입력하지 않았습니다.');
+				form.sequre_no1.focus();
+				return;
+			}
+		}
+	</script>
+	<style type="text/css">
+		#container {
+			display: table;
+			margin: 0 auto;
+		}
+		table {
+			border-collapse: collapse;
+		}
+		table, tr, td {
+			border: 1px solid gray;
+		}
+		
+		tr, td {
+			padding: 10px;
+		}
+		
+		span.red {
+			color: red;
+		}
+		
+		small.blue {
+			color: blue;
+		}
+		
+		p {
+			text-align: center;
+		}
+		
+		p input {
+			margin: 5px;
+		}
+	</style>
+	<title>** 회원 가입 **</title>
+</head>
+<body>
+	<form name="join" method="post" action="insert.jsp">
+		<div id="container">
+			<table>
+				<tr>
+					<td><span class="red">*</span> 아이디</td>
+					<td>
+						<input type="text" name="userid">
+						<input type="button" name="id_check" value="중복확인">
+						<span class="note">(영문+숫자 5~16자리)<small class="blue"> 중복 확인 절차를 거쳐야 합니다.</small></span>
+					</td>
+				</tr>
+				<tr>
+					<td><span class="red">*</span> 비밀번호</td>
+					<td>
+						<input type="password" name="userpw" size="12" maxlength="12">
+						&nbsp;다시한번
+						<input type="password" name="pw_check" size="12" maxlength="12">
+						<span>(영문+숫자 5~16자리)</span>
+					</td>
+				</tr>
+				<tr>
+					<td><span class="red">*</span> 이름</td>
+					<td>
+						<input type="text" name="username" size="10" maxlength="10">
+					</td>
+				</tr>
+				<tr>
+					<td><span class="red">*</span> 주민등록번호</td>
+					<td>
+						<input type="text" size="6" maxlength="6" name="sequre_no1"> - <input type="text" size="7" maxlength="7" name="sequre_no2">
+						<input type="button" name="sNo_check" value="중복확인">
+						<span class="note"><small class="blue"> 중복 확인 절차를 거쳐야 합니다.</small></span>
+					</td>
+				</tr>
+				<tr>
+					<td><span class="red">*</span> E-mail</td>
+					<td>
+						<input type="email" name="useremail">
+					</td>
+				</tr>
+				<tr>
+					<td><span class="red">*</span> 우편번호</td>
+					<td>
+						<input type="text" size="3" maxlength="3" name="post_no1"> - <input type="text" size="3" maxlength="3" name="post_no2">
+						<input type="button" name="pNo_check" value="우편번호 검색">
+						<span class="note"><small class="blue"> 우편번호 검색 버튼을 누르세요.</small></span>
+					</td>
+				</tr>
+				<tr>
+					<td><span class="red">*</span> 주소</td>
+					<td>
+						<input type="text" size="50">
+					</td>
+				</tr>
+				<tr>
+					<td><span class="red">*</span> 나머지 주소</td>
+					<td>
+						<input type="text" size="50">
+						<span class="note"><small class="blue"> 나머지 주소를 적어넣습니다.</small></span>
+					</td>
+				</tr>
+				<tr>
+					<td>핸드폰번호</td>
+					<td>
+						<select>
+							<option value="010">010</option>
+							<option value="011">011</option>
+							<option value="016">016</option>
+							<option value="017">017</option>
+							<option value="018">018</option>
+							<option value="018">017</option>
+						</select>
+						 - <input type="text" size="4" maxlength="4" name="phone_no1"> - <input type="text" size="4" maxlength="4" name="phone_no2"> 
+					</td>
+				</tr>
+			</table>
+			<p>
+				<input type="button" value="등록" onclick="doSubmit()">
+				<input type="reset" value="다시쓰기">
+				<input type="button" value="취소" onclick="javascript:history.go(-1);">
+			</p>
+		</div>
+	</form>
+</body>
+</html>
