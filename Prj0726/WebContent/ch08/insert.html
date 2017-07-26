@@ -3,6 +3,38 @@
 <head>
 	<meta charset="UTF-8">
 	<script type="text/javascript">
+	<!--
+		function MM_openBrWindow(theURL, winName, features) {
+			form = document.join;
+			if(winName == "userid_check") {
+				if(!checkValue(form.userid, '아이디', 5, 16)) {
+					return;
+				}
+				theURL = theURL + "?userid=" + from.userid.value;
+			} else if(winName == "secureNo_check") {
+				theURL = theURL + "?secureNo=" + form.secureNo1.value + "-" + form.secureNo2.value; 
+			}
+			window.open(theURL, winName, features);
+		}
+		
+		function checkValue(target, cmt, lmin, lmax) {
+			var Alpha = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+			var Digit = '1234567890';
+			var astr = Alpha + Digit;
+			var i;
+			
+			var tValue = target.value;
+			if(tvalue.length < lmin || tValue.length > lmax) {
+				if(lmin == lmax) {
+					alert(cmt + '는 ' + lmin + 'Byte이어야 합니다.');
+				} else {
+					alert(cmt + '는 ' + lmin + '~' + lmax + 'Byte 이내로 입력하셔야 합니다.');
+				}
+				target.focus();
+				return false;
+			}
+			
+		}
 		function doSubmit() {
 			form = document.join;
 			if(!form.userid.value) {
@@ -23,7 +55,7 @@
 				return;
 			}
 			
-			if(form.userpw.value != form.pw_check.value) {
+			if(form.userpw.value != form.userpw_check.value) {
 				alert('비밀번호가 일치하지 않았습니다.');
 				form.userpw.value = "";
 				form.pw_check.value = "";
@@ -31,12 +63,13 @@
 				return;
 			}
 			
-			if(!form.sequre_no1.value || !form.sequre_no2.value) {
+			if(!form.secureNo1.value || !form.secureNo2.value) {
 				alert('주민등록번호를 입력하지 않았습니다.');
 				form.sequre_no1.focus();
 				return;
 			}
 		}
+	//-->
 	</script>
 	<style type="text/css">
 		#container {
@@ -80,7 +113,7 @@
 					<td><span class="red">*</span> 아이디</td>
 					<td>
 						<input type="text" name="userid">
-						<input type="button" name="id_check" value="중복확인">
+						<input type="button" name="userid_check" value="중복확인">
 						<span class="note">(영문+숫자 5~16자리)<small class="blue"> 중복 확인 절차를 거쳐야 합니다.</small></span>
 					</td>
 				</tr>
@@ -89,7 +122,7 @@
 					<td>
 						<input type="password" name="userpw" size="12" maxlength="12">
 						&nbsp;다시한번
-						<input type="password" name="pw_check" size="12" maxlength="12">
+						<input type="password" name="userpw_check" size="12" maxlength="12">
 						<span>(영문+숫자 5~16자리)</span>
 					</td>
 				</tr>
@@ -102,8 +135,8 @@
 				<tr>
 					<td><span class="red">*</span> 주민등록번호</td>
 					<td>
-						<input type="text" size="6" maxlength="6" name="sequre_no1"> - <input type="text" size="7" maxlength="7" name="sequre_no2">
-						<input type="button" name="sNo_check" value="중복확인">
+						<input type="text" size="6" maxlength="6" name="secureNo1"> - <input type="text" size="7" maxlength="7" name="secureNo2">
+						<input type="button" name="secureNo_check" value="중복확인">
 						<span class="note"><small class="blue"> 중복 확인 절차를 거쳐야 합니다.</small></span>
 					</td>
 				</tr>
