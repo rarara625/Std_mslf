@@ -26,7 +26,6 @@
 		
 		try {
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/member", "root", "1234");
-			pstmt = conn.prepareStatement(query);
 		} catch(SQLException e) {
 			out.println(e);
 		}
@@ -35,6 +34,7 @@
 		try {
 			query = "select * from member where userid=? and password=?";
 			
+			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, userid);
 			pstmt.setString(2, password);
 
@@ -47,7 +47,7 @@
 			} else {
 				bLogin = false;
 			}
-			
+
 			rs.close();
 			pstmt.close();
 		} catch(SQLException e) {
