@@ -3,19 +3,34 @@
 <head>
 	<meta charset="UTF-8">
 	<script type="text/javascript">
-	<!--
-		function MM_openBrWindow(theURL, winName, features) {
+		function checkId() {
+			form = document.join;
+			var id = form.userid.value;
+			url = "userid_check.jsp?userid=" + id;
+			window.open(url, "userid_check", "width=300, height=200");
+		}
+		
+		function checkJumin() {
+			form = document.join;
+			var secureNo = form.secureNo1.value + " - " + form.secureNo2.value;
+			url = "securitynum_check.jsp?securitynum=" + secureNo;
+			window.open(url, "securitynum_check", "width=330, height=150");
+		}
+		
+		/* function MM_openBrWindow(theURL, winName, features) {
 			form = document.join;
 			if(winName == "userid_check") {
 				if(!checkValue(form.userid, '아이디', 5, 16)) {
 					return;
 				}
-				theURL = theURL + "?userid=" + from.userid.value;
+				theURL = theURL + "?userid=" + form.userid.value;
 			} else if(winName == "secureNo_check") {
 				theURL = theURL + "?secureNo=" + form.secureNo1.value + "-" + form.secureNo2.value; 
 			}
 			window.open(theURL, winName, features);
 		}
+		
+		
 		
 		function checkValue(target, cmt, lmin, lmax) {
 			var Alpha = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -171,8 +186,7 @@
 			}
 			
 			form.submit();
-		}
-	//-->
+		} */
 	</script>
 	<style type="text/css">
 		h3 {
@@ -224,7 +238,7 @@
 					<td><span class="red">*</span> 아이디</td>
 					<td>
 						<input type="text" name="userid">
-						<input type="button" name="userid_check" value="중복확인" onclick="MM_openBrWindow('userid_check.jsp', 'userid_check', 'width=330, height=200')">
+						<input type="button" name="userid_check" value="중복확인" onclick="checkId()">
 						<span class="note">(영문+숫자 5~16자리)<small class="blue"> 중복 확인 절차를 거쳐야 합니다.</small></span>
 					</td>
 				</tr>
@@ -247,7 +261,7 @@
 					<td><span class="red">*</span> 주민등록번호</td>
 					<td>
 						<input type="text" size="6" maxlength="6" name="secureNo1"> - <input type="text" size="7" maxlength="7" name="secureNo2">
-						<input type="button" name="secureNo_check" value="중복확인" onclick="MM_openBrWindow('securitynum_check.jsp', 'securitynum_check', 'width=330, height=150')">
+						<input type="button" name="secureNo_check" value="중복확인" onclick="checkJumin()">
 						<span class="note"><small class="blue"> 중복 확인 절차를 거쳐야 합니다.</small></span>
 					</td>
 				</tr>
@@ -261,7 +275,7 @@
 					<td><span class="red">*</span> 우편번호</td>
 					<td>
 						<input type="text" size="3" maxlength="3" name="postNo1"> - <input type="text" size="3" maxlength="3" name="postNo2">
-						<input type="button" name="pNo_check" value="우편번호 검색" onclick="MM_openBrWindow('wipcode_search.jsp', 'zipcodesearch', 'scrollbars=yes, width=500, height=250')">
+						<input type="button" name="pNo_check" value="우편번호 검색" onclick="window.open('wipcode_search.jsp', 'zipcodesearch', 'scrollbars=yes, width=500, height=250')">
 						<span class="note"><small class="blue"> 우편번호 검색 버튼을 누르세요.</small></span>
 					</td>
 				</tr>
