@@ -169,7 +169,7 @@
 		</div>
 		<p>
 			<input type="button" value="확인" onclick="location='left_Frame.jsp'">
-			<input type="button" value="tnwjd" onclick="doSubmit()">
+			<input type="button" value="수정" onclick="doSubmit()">
 		</p>
 	</form>
 </body>
