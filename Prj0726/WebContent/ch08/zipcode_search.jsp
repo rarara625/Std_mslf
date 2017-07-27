@@ -26,7 +26,7 @@
 		}
 		
 		table {
-			width: 98%;
+			width: 450px;
 		}
 		
 		table, tr, td {
@@ -50,26 +50,24 @@
 		}
 		
 		td#post {
-			width: 27%;
+			width: 30%;
 			background: #b4b4da;
 			color: #999999;
 		}
 		
 		td#addr {
-			width: 73%;
+			width: 70%;
 			background: #f7edfe;
 			color: #999999;
 		}
 		
 		td#adr {
-			width: 27%;
 			border: 1px solid #cccccc;
 			background: #ffffff;
 			text-align: center;
 		}
 		
 		td#adr1 {
-			width: 73%;
 			border: 1px solid #999999;
 			background: #ffffff;
 			text-align: center;
@@ -106,7 +104,7 @@
 		}
 	%>
 	
-	<form name="zipcode" method="post" action="zipcode_serch.jsp">
+	<form name="zipcode" method="post" action="zipcode_search.jsp">
 		<div class="container">
 			<table>
 				<tr>
@@ -136,7 +134,7 @@
 		<table>
 			<%
 				try {
-					query = "select * from zipcode where dong like '%" + searchaddr + "'";
+					query = "select * from zipcode where dong like '%" + searchaddr + "%'";
 					rs = stmt.executeQuery(query);
 					
 					while(rs.next()) {
