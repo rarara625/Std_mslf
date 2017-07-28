@@ -5,9 +5,9 @@
 <head>
 	<meta http-equiv="Content-Type">
 	<script type="text/javascript">
-		function MM.openBrWindow(theURL, winName, features) {
+		/* function MM.openBrWindow(theURL, winName, features) {
 			window.open(theURL, winName, features);
-		}
+		} */
 		
 		function doSubmit() {
 			form = document.join;
