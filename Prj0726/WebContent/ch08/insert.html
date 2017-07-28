@@ -59,7 +59,7 @@
 			return true;
 		}
 		
-		function juchecknum(s1, s2) {
+		/* function juchecknum(s1, s2) {
 			var re = new RegExp(/\d{6}(\-|)[1-4]\d{6}$/);
 			var jumin = s1 + " - " + s2;
 			return re.test(jumin);
@@ -93,7 +93,7 @@
 					return true;
 				}
 			}
-		}
+		} */
 		
 		function doSubmit() {
 			form = document.join;
@@ -127,13 +127,13 @@
 				return;
 			}
 			
-			if(form.userid.value == form.userpw.value) {
+			/* if(form.userid.value == form.userpw.value) {
 				alert("아이디와 비밀번호를서로 다르게 입력하세요!");
 				form.userpw.value = "";
 				form.userpw_check.value = "";
 				form.userpw.focus();
 				return;
-			}
+			} */
 			
 			/* if(!checkValue(form.userpw, '비밀번호', 4, 12)) {
 				return;
@@ -194,10 +194,32 @@
 		#container {
 			display: table;
 			margin: 0 auto;
+			width: 80%;
 		}
+		
+		hr {
+			width: 100%;
+			height: 8px;
+			margin: 20px 0;
+		}
+		
+		hr#top {
+			background: #006400;
+		}
+		
+		hr#bottom {
+			background: #8B6331;
+		}
+		
+		div#wrapper {
+			display: table;
+			margin: 0 auto;
+		}
+		
 		table {
 			border-collapse: collapse;
 		}
+		
 		table, tr, td {
 			border: 1px solid gray;
 		}
@@ -227,85 +249,89 @@
 <body>
 	<form name="join" method="post" action="insert.jsp">
 		<div id="container">
-			<table>
-				<tr>
-					<td><span class="red">*</span> 아이디</td>
-					<td>
-						<input type="text" name="userid">
-						<input type="button" name="userid_check" value="중복확인" onclick="MM_openBrWindow('userid_check.jsp', 'userid_check', 'width=330, height=200')">
-						<span class="note">(영문+숫자 5~16자리)<small class="blue"> 중복 확인 절차를 거쳐야 합니다.</small></span>
-					</td>
-				</tr>
-				<tr>
-					<td><span class="red">*</span> 비밀번호</td>
-					<td>
-						<input type="password" name="userpw" size="12" maxlength="12">
-						&nbsp;다시한번
-						<input type="password" name="userpw_check" size="12" maxlength="12">
-						<span>(영문+숫자 5~16자리)</span>
-					</td>
-				</tr>
-				<tr>
-					<td><span class="red">*</span> 이름</td>
-					<td>
-						<input type="text" name="username" size="10" maxlength="10">
-					</td>
-				</tr>
-				<tr>
-					<td><span class="red">*</span> 주민등록번호</td>
-					<td>
-						<input type="text" size="6" maxlength="6" name="secureNo1"> - <input type="text" size="7" maxlength="7" name="secureNo2">
-						<input type="button" name="secureNo_check" value="중복확인" onclick="MM_openBrWindow('securitynum_check.jsp', 'securitynum_check', 'width=330, height=150')">
-						<span class="note"><small class="blue"> 중복 확인 절차를 거쳐야 합니다.</small></span>
-					</td>
-				</tr>
-				<tr>
-					<td><span class="red">*</span> E-mail</td>
-					<td>
-						<input type="email" name="useremail">
-					</td>
-				</tr>
-				<tr>
-					<td><span class="red">*</span> 우편번호</td>
-					<td>
-						<input type="text" size="3" maxlength="3" name="postNo1"> - <input type="text" size="3" maxlength="3" name="postNo2">
-						<input type="button" name="zipcode_search" value="우편번호 검색" onclick="window.open('zipcode_search.jsp', 'zipcode_search', 'scrollbars=yes, width=500, height=250')">
-						<span class="note"><small class="blue"> 우편번호 검색 버튼을 누르세요.</small></span>
-					</td>
-				</tr>
-				<tr>
-					<td><span class="red">*</span> 주소</td>
-					<td>
-						<input type="text" size="50" name="address1">
-					</td>
-				</tr>
-				<tr>
-					<td><span class="red">*</span> 나머지 주소</td>
-					<td>
-						<input type="text" size="50" name="address2">
-						<span class="note"><small class="blue"> 나머지 주소를 적어넣습니다.</small></span>
-					</td>
-				</tr>
-				<tr>
-					<td>핸드폰번호</td>
-					<td>
-						<select>
-							<option value="010">010</option>
-							<option value="011">011</option>
-							<option value="016">016</option>
-							<option value="017">017</option>
-							<option value="018">018</option>
-							<option value="018">017</option>
-						</select>
-						 - <input type="text" size="4" maxlength="4" name="phone_no1"> - <input type="text" size="4" maxlength="4" name="phone_no2"> 
-					</td>
-				</tr>
-			</table>
-			<p>
-				<input type="button" value="등록" onclick="doSubmit()">
-				<input type="reset" value="다시쓰기">
-				<input type="button" value="취소" onclick="javascript:history.go(-1);">
-			</p>
+			<hr id="top">
+				<div id="wrapper">
+					<table>
+						<tr>
+							<td><span class="red">*</span> 아이디</td>
+							<td>
+								<input type="text" name="userid">
+								<input type="button" name="userid_check" value="중복확인" onclick="MM_openBrWindow('userid_check.jsp', 'userid_check', 'width=330, height=200')">
+								<span class="note">(영문+숫자 5~16자리)<small class="blue"> 중복 확인 절차를 거쳐야 합니다.</small></span>
+							</td>
+						</tr>
+						<tr>
+							<td><span class="red">*</span> 비밀번호</td>
+							<td>
+								<input type="password" name="userpw" size="12" maxlength="12">
+								&nbsp;다시한번
+								<input type="password" name="userpw_check" size="12" maxlength="12">
+								<span>(영문+숫자 5~16자리)</span>
+							</td>
+						</tr>
+						<tr>
+							<td><span class="red">*</span> 이름</td>
+							<td>
+								<input type="text" name="username" size="10" maxlength="10">
+							</td>
+						</tr>
+						<tr>
+							<td><span class="red">*</span> 주민등록번호</td>
+							<td>
+								<input type="text" size="6" maxlength="6" name="secureNo1"> - <input type="text" size="7" maxlength="7" name="secureNo2">
+								<input type="button" name="secureNo_check" value="중복확인" onclick="MM_openBrWindow('securitynum_check.jsp', 'securitynum_check', 'width=330, height=150')">
+								<span class="note"><small class="blue"> 중복 확인 절차를 거쳐야 합니다.</small></span>
+							</td>
+						</tr>
+						<tr>
+							<td><span class="red">*</span> E-mail</td>
+							<td>
+								<input type="email" name="useremail">
+							</td>
+						</tr>
+						<tr>
+							<td><span class="red">*</span> 우편번호</td>
+							<td>
+								<input type="text" size="3" maxlength="3" name="postNo1"> - <input type="text" size="3" maxlength="3" name="postNo2">
+								<input type="button" name="zipcode_search" value="우편번호 검색" onclick="window.open('zipcode_search.jsp', 'zipcode_search', 'scrollbars=yes, width=500, height=250')">
+								<span class="note"><small class="blue"> 우편번호 검색 버튼을 누르세요.</small></span>
+							</td>
+						</tr>
+						<tr>
+							<td><span class="red">*</span> 주소</td>
+							<td>
+								<input type="text" size="50" name="address1">
+							</td>
+						</tr>
+						<tr>
+							<td><span class="red">*</span> 나머지 주소</td>
+							<td>
+								<input type="text" size="50" name="address2">
+								<span class="note"><small class="blue"> 나머지 주소를 적어넣습니다.</small></span>
+							</td>
+						</tr>
+						<tr>
+							<td>핸드폰번호</td>
+							<td>
+								<select name="phone1">
+									<option value="010">010</option>
+									<option value="011">011</option>
+									<option value="016">016</option>
+									<option value="017">017</option>
+									<option value="018">018</option>
+									<option value="018">017</option>
+								</select>
+								 - <input type="text" size="4" maxlength="4" name="phone2"> - <input type="text" size="4" maxlength="4" name="phone2"> 
+							</td>
+						</tr>
+					</table>
+				</div>
+				<p>
+					<input type="button" value="등록" onclick="doSubmit()">
+					<input type="reset" value="다시쓰기">
+					<input type="button" value="취소" onclick="javascript:history.go(-1);">
+				</p>
+			<hr id="bottom">
 		</div>
 	</form>
 </body>
