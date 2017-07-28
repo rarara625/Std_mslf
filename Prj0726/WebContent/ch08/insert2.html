@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript">
+		function checkId() {
+			form = document.join;
+			var id = form.userid.value;
+			url = "userid_check.jsp?userid=" + id;
+			window.open(url, "userid_check", "width=300, height=200");
+		}
+		
+		function checkJumin() {
+			form = document.join;
+			var secureNo = form.secureNo1.value + " - " + form.secureNo2.value;
+			url = "securitynum_check.jsp?securitynum=" + secureNo;
+			window.open(url, "securitynum_check", "width=330, height=150");
+		}
+		
+		/* function MM_openBrWindow(theURL, winName, features) {
+			form = document.join;
+			if(winName == "userid_check") {
+				if(!checkValue(form.userid, '아이디', 5, 16)) {
+					return;
+				}
+				theURL = theURL + "?userid=" + form.userid.value;
+			} else if(winName == "secureNo_check") {
+				theURL = theURL + "?secureNo=" + form.secureNo1.value + "-" + form.secureNo2.value; 
+			}
+			window.open(theURL, winName, features);
+		}
+		
+		
+		
+		function checkValue(target, cmt, lmin, lmax) {
+			var Alpha = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+			var Digit = '1234567890';
+			var astr = Alpha + Digit;
+			var i;
+			
+			var tValue = target.value;
+			if(tValue.length < lmin || tValue.length > lmax) {
+				if(lmin == lmax) {
+					alert(cmt + '는 ' + lmin + 'Byte이어야 합니다.');
+				} else {
+					alert(cmt + '는 ' + lmin + '~' + lmax + 'Byte 이내로 입력하셔야 합니다.');
+				}
+				target.focus();
+				return false;
+			}
+			
+			if(astr.length > 1) {
+				for(i=0; i<tValue.length; i++) {
+					if(astr.indexOf(tValue.substring(i, i+1)) < 0) {
+						alert(cmt + '에 허용할 수 없는 문자가 입력되었습니다.');
+						target.focus();
+						return false;
+					}
+				}
+			}
+			return true;
+		}
+		
+		function juchecknum(s1, s2) {
+			var re = new RegExp(/\d{6}(\-|)[1-4]\d{6}$/);
+			var jumin = s1 + " - " + s2;
+			return re.test(jumin);
+		}
+		
+		function juchecktype(s1, s2) {
+			n = 2;
+			sum = 0;
+			
+			for(i=0; i<s1.length; i++) {
+				sum += parseInt(s1.substr(i, 1)) * n++;
+				for(i=0; i<s2.length-1; i++) {
+					sum += parseInt(s2.substr(i, 1)) * n++;
+					if(n == 10) {
+						n = 2;
+					}
+				}
+				c = 11 - sum % 11;
+				
+				if(c == 11) {
+					c = 1;
+				}
+				
+				if(c == 10) {
+					c = 0;
+				}
+				
+				if(c != parseInt(s2.substr(6, 1))) {
+					return false;
+				} else {
+					return true;
+				}
+			}
+		}
+		
+		function doSubmit() {
+			form = document.join;
+			if(!form.userid.value) {
+				alert('아이디를 입력하지 않았습니다.');
+				form.userid.focus();
+				return;
+			}
+			
+			if(!form.username.value) {
+				alert('이름을 입력하지 않았습니다.');
+				form.username.focus();
+				return;
+			}
+			
+			if(!form.userpw.value) {
+				alert('비밀번호를 입력하지 않았습니다.');
+				form.userpw.focus();
+				return;
+			}
+			
+			if(form.userpw.value != form.userpw_check.value) {
+				alert('비밀번호가 일치하지 않았습니다.');
+				form.userpw.value = "";
+				form.pw_check.value = "";
+				form.userpw.focus();
+				return;
+			}
+			
+			if(form.userid.value == form.userpw.value) {
+				alert("아이디와 비밀번호를 서로 다르게 입력하세요!");
+				form.userpw.value = "";
+				form.userpw_check.value = "";
+				form.userpw.focus();
+				return;
+			}
+			
+			if(!checkValue(form.userpw, '비밀번호', 4, 12)) {
+				return;
+			}
+			
+			if(!form.secureNo1.value || !form.secureNo2.value) {
+				alert('주민등록번호를 입력하지 않았습니다.');
+				form.sequre_no1.focus();
+				return;
+			}
+			
+			if(!juchecknum(form.secureNo1.value, form.secureNo2.value) || !juchecktype(form.secureNo1.value, form.secureNo2.value)) {
+				alert("잘못된 주민등록번호입니다!");
+				form.secureNo1.focus();
+				return;
+			}
+			
+			if(!form.useremail.value) {
+				alert('Email을 입력하지 않았습니다.');
+				form.useremail.focus();
+				return;
+			}
+			
+			if(form.useremail.value.indexOf("@") < 0) {
+				alert('Email 주소 형식이 틀립니다.');
+				form.useremail.focus();
+				return;
+			}
+			
+			if(!form.useremail.value.indexOf(".") < 0) {
+				alert('Email 도메인 주소가 틀립니다.');
+				form.useremail.focus();
+				return;
+			}
+			
+			if(!form.postNo1.value || !form.postNo2.value) {
+				alert('우편번호를 입력하지 않았습니다.');
+				MM_openBrWindow('wipcode_search.jsp', 'zipcodesearch', 'scrollbars=yes, width=500, height=250');
+				return;
+			}
+			
+			if(!form.address1.value) {
+				alert('주소를 입력하지 않았습니다.');
+				MM_openBrWindow('wipcode_search.jsp', 'zipcodesearch', 'scrollbars=yes, width=500, height=250'
+				return;
+			}
+			
+			if(!form.address2.value) {
+				alert('나머지 주소를 입력하지 않았습니다.');
+				form.address2.focus();
+				return;
+			}
+			
+			form.submit();
+		} */
+	</script>
+	<style type="text/css">
+		h3 {
+			text-align: center;
+			line-height: 50px;
+		}
+		
+		div#container {
+			display: table;
+			margin: 0 auto;
+		}
+		
+		table {
+			border-collapse: collapse;
+		}
+		
+		table, tr, td {
+			border: 1px solid gray;
+		}
+		
+		tr, td {
+			padding: 10px;
+		}
+		
+		span.red {
+			color: red;
+		}
+		
+		small.blue {
+			color: blue;
+		}
+		
+		p {
+			text-align: center;
+		}
+		
+		p input {
+			margin: 5px;
+		}
+	</style>
+	<title>** 회원 가입 **</title>
+</head>
+<body>
+	<h3>회원 가입</h3>
+	<form name="join" method="post" action="insert.jsp">
+		<div id="container">
+			<table>
+				<tr>
+					<td><span class="red">*</span> 아이디</td>
+					<td>
+						<input type="text" name="userid">
+						<input type="button" name="userid_check" value="중복확인" onclick="checkId()">
+						<span class="note">(영문+숫자 5~16자리)<small class="blue"> 중복 확인 절차를 거쳐야 합니다.</small></span>
+					</td>
+				</tr>
+				<tr>
+					<td><span class="red">*</span> 비밀번호</td>
+					<td>
+						<input type="password" name="userpw" size="12" maxlength="12">
+						&nbsp;다시한번
+						<input type="password" name="userpw_check" size="12" maxlength="12">
+						<span>(영문+숫자 5~16자리)</span>
+					</td>
+				</tr>
+				<tr>
+					<td><span class="red">*</span> 이름</td>
+					<td>
+						<input type="text" name="username" size="10" maxlength="10">
+					</td>
+				</tr>
+				<tr>
+					<td><span class="red">*</span> 주민등록번호</td>
+					<td>
+						<input type="text" size="6" maxlength="6" name="secureNo1"> - <input type="text" size="7" maxlength="7" name="secureNo2">
+						<input type="button" name="secureNo_check" value="중복확인" onclick="checkJumin()">
+						<span class="note"><small class="blue"> 중복 확인 절차를 거쳐야 합니다.</small></span>
+					</td>
+				</tr>
+				<tr>
+					<td><span class="red">*</span> E-mail</td>
+					<td>
+						<input type="email" name="useremail">
+					</td>
+				</tr>
+				<tr>
+					<td><span class="red">*</span> 우편번호</td>
+					<td>
+						<input type="text" size="3" maxlength="3" name="postNo1"> - <input type="text" size="3" maxlength="3" name="postNo2">
+						<input type="button" name="pNo_check" value="우편번호 검색" onclick="window.open('zipcode_search.jsp', 'zipcodesearch', 'scrollbars=yes, width=500, height=250')">
+						<span class="note"><small class="blue"> 우편번호 검색 버튼을 누르세요.</small></span>
+					</td>
+				</tr>
+				<tr>
+					<td><span class="red">*</span> 주소</td>
+					<td>
+						<input type="text" size="50" name="address1">
+					</td>
+				</tr>
+				<tr>
+					<td><span class="red">*</span> 나머지 주소</td>
+					<td>
+						<input type="text" size="50" name="address2">
+						<span class="note"><small class="blue"> 나머지 주소를 적어넣습니다.</small></span>
+					</td>
+				</tr>
+				<tr>
+					<td>핸드폰번호</td>
+					<td>
+						<select name="phone1">
+							<option value="010">010</option>
+							<option value="011">011</option>
+							<option value="016">016</option>
+							<option value="017">017</option>
+							<option value="018">018</option>
+							<option value="018">017</option>
+						</select>
+						 - <input type="text" size="4" maxlength="4" name="phone2"> - <input type="text" size="4" maxlength="4" name="phone3"> 
+					</td>
+				</tr>
+			</table>
+			<p>
+				<input type="button" value="등록" onclick="doSubmit()">
+				<input type="reset" value="다시쓰기">
+				<input type="button" value="취소" onclick="javascript:history.go(-1);">
+			</p>
+		</div>
+	</form>
+</body>
+</html>
