@@ -5,7 +5,6 @@
 <head>
 	<meta http-equiv="Content-Type">
 	<script type="text/javascript">
-	<!--
 		function doSubmit() {
 			form = document.join;
 			if(!form.userid.value) {
@@ -15,7 +14,6 @@
 			}
 			form.submit();
 		}
-	//-->
 	</script>
 	<style type="text/css">
 		div {
@@ -43,7 +41,6 @@
 		
 		td.lCell {
 			text-align: right;
-			width: 15%;
 		}
 		
 		p {
@@ -93,7 +90,7 @@
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/member", "root", "1234");
 			stmt = conn.createStatement();
 			
-			query = "inser into member values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			query = "insert into member values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(query);
 			
 			pstmt.setString(1, userid);
@@ -106,6 +103,7 @@
 			pstmt.setString(8, address2);
 			pstmt.setString(9, phone);
 			pstmt.setString(10, regdate);
+			
 			pstmt.executeUpdate();
 		} catch(SQLException e) {
 			out.println("<script>alert('가입처리가 되지 않았습니다. 다시 시도해 주세요.'); history.back();</script>");
@@ -113,7 +111,6 @@
 			conn.close();
 		}
 	%>
-	
 	
 	<form name="join" method="post" action="modify.jsp">
 		<input type="hidden" name="userid" value="<%= userid %>">
@@ -131,7 +128,7 @@
 				</tr>
 				<tr>
 					<td class="lCell">비밀번호</td>
-					<td class="lCell">보안상 기재하지 않습니다.</td>
+					<td>보안상 기재하지 않습니다.</td>
 				</tr>
 				<tr>
 					<td class="lCell">주민등록번호</td>
