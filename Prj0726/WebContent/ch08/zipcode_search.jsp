@@ -1,13 +1,13 @@
 <%@ page info="zipcode search" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*, java.io.*, java.net.*" %>
+<%@ page errorPage="error.jsp" import="java.sql.*, java.io.*, java.net.*" %>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="Content-Type">
 	<script type="text/javascript">
 		function choiceZipcode(zipcodeno, address1) {
-			opener.join.zipcode1.value= zipcodeno.substring(0,3);
-			opener.join.zipcode2.value= zipcodeno.substring(4,7);
+			opener.join.postNo1.value= zipcodeno.substring(0,3);
+			opener.join.postNo2.value= zipcodeno.substring(4,7);
 			opener.join.address1.value= address1;
 			opener.join.address2.focus();
 			self.close();
@@ -76,6 +76,7 @@
 	<title>우편번호 검색</title>
 </head>
 <body>
+	<% request.setCharacterEncoding("UTF-8"); %>
 	<%
 		Connection conn = null;
 		Statement stmt = null;
