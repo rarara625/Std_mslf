@@ -14,23 +14,21 @@
 			margin: 0 auto;
 		}
 		
-		table {
-			width: 60%;
+		table, tr, th, td {
 			border: 1px solid black;
+			border-collapse: collapse;
+			text-align: center;
+			padding: 10px;
 		}
 		
-		tr, th, td {
-			border: 1px solid black;
-		}
-		
-		tr th {
-			column-span: 2;
-			background: #ccccff;
+		th {
+			background: #cd1039;
+			color: white;
 			height: 25px;
 		}
 		
-		tr td {
-			padding: 10px;
+		tr, td {
+			padding: 50px;
 		}
 	</style>
 	<title>Error Page</title>
@@ -42,8 +40,8 @@
 				<th>에러(ERROR)</th>
 			</tr>
 			<tr>
-				<td>시스템에 문제가 발생하였습니다. 잠시후 다시 이용해 주세요.</td>
-				<td>에러내용 : <%= exception.getMessage() %></td>
+				<td>시스템에 문제가 발생하였습니다. 잠시후 다시 이용해 주세요.<br><br>
+				에러내용 : <%= exception.getMessage() %></td>
 			</tr>
 		</table>
 	</div>
