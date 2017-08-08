@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript">
+		function check() {
+			with(document.filegbwrite) {
+				if(subject.value.length == 0) {
+					alert("제목을 입력해 주세요!!");
+					subject.focus();
+					eturn false;
+				}
+				
+				if(name.value.length == 0) {
+					alert("이름을 입력해 주세요!!");
+					name.focus();
+					return false;
+				}
+				
+				if(content.value.length == 0) {
+					alert("내용을 입력해주세요!!");
+					content.focus();
+					return false;
+				}
+				
+				document.filegbwrite.submit();
+			}
+		}
+	</script>
+	<style type="text/css">
+		div {
+			display: table;
+			margin: 0 auto;
+		}
+		
+		tr td.style2 {
+			text-align: center;
+		}
+	</style>
+	<meta http-equiv="Content-Type">
+	<title>글쓰기</title>
+</head>
+<body>
+	<form name="filegbwrite" method="post" action="dbgb_show.jsp">
+		<div>
+			<table width="600" cellspacing="0" cellpadding="2">
+				<tr>
+					<td colspan="2" bgcolor="#1f4f8f" height="1"></td>
+				</tr>
+				<tr>
+					<td colspan="2" bgcolor="#dfedff" height="20" class="style1">글쓰기</td>
+				</tr>
+				<tr>
+					<td colspan="2" bgcolor="#1f4f8f" height="1"></td>
+				</tr>
+				<tr>
+					<td width="124" bgcolor="#f4f4f4" class="style2">이름</td>
+					<td width="494">
+						<input type="text" name="name" class="input_style1">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" bgcolor="#dddddd" height="1"></td>
+				</tr>
+				<tr>
+					<td width="124" bgcolor="#f4f4f4" class="style2">E-mail</td>
+					<td width="494" height="25">
+						<input type="text" name="email" class="input_style1">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" bgcolor="#dddddd" height="1"></td>
+				</tr>
+				<tr>
+					<td width="124" bgcolor="#f4f4f4" class="style2">제목</td>
+					<td width="494" height="25">
+						<input type="text" name="subject" size="" maxlength="60" class="input_style2">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" bgcolor="#dddddd" height="1"></td>
+				</tr>
+				<tr>
+					<td width="124" height="162" bgcolor="#f4f4f4" style="padding-top:5px;" valign="top" class="style2">내용</td>
+					<td width="494" valign="top">
+						<textarea rows="10" cols="65" name="content" maxlength="2000" class="textarea_style1"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" height="1"></td>
+				</tr>
+				<tr>
+					<td colspan="2" height="1" bgcolor="#1f4f8f"></td>
+				</tr>
+				<tr>
+					<td colspan="2" height="10"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="right">
+						<table width="100%" border="0" cellpadding="0" cellspaceing="0">
+							<tr>
+								<td width="28%">&nbsp;</td>
+								<td width="51%">&nbsp;</td>
+								<td width="12%">
+									<a href="dbgb_show.jsp"><img src="image/cancle.gif" width="46" height="20" border="0"></a>
+								</td>
+								<td width="9%">
+									<a href="#" onclick="check(this.form);"><img src="image/ok.gif" width="46" height="20" border="0"></a>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</form>
+</body>
+</html>
