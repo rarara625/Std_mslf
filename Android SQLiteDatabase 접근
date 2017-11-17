@@ -1,0 +1,214 @@
+C:\Users\USER\AppData\Local\Android\sdk\platform-tools>adb shell
+generic_x86:/ $ su
+generic_x86:/ #
+generic_x86:/ # ls
+acct       charger data         etc               fstab.ranchu-encrypt   init.environ.rc        init.ranchu-noencrypt.rc init.usb.configfs.rc mnt  property_contexts sdcard          sepolicy         sys                 ueventd.ranchu.rc vendor
+bugreports config  default.prop file_contexts.bin fstab.ranchu-noencrypt init.goldfish.rc       init.ranchu.rc           init.usb.rc          oem  root              seapp_contexts  service_contexts system              ueventd.rc
+cache      d       dev          fstab.goldfish    init                   init.ranchu-encrypt.rc init.rc                  init.zygote32.rc     proc sbin              selinux_version storage          ueventd.goldfish.rc var
+generic_x86:/ # cd data
+generic_x86:/data # ls
+adb anr app app-asec app-ephemeral app-lib app-private backup benchmarktest bootchart cache dalvik-cache data drm local lost+found media mediadrm misc misc_ce misc_de nativetest ota ota_package property resource-cache security ss system system_ce system_de tombstones user user_de var
+generic_x86:/data # ls -l
+total 288
+drwx------   2 root     root     4096 2017-11-09 02:28 adb
+drwxrwxr-x   2 system   system   4096 2017-11-09 02:28 anr
+drwxrwx--x  29 system   system   4096 2017-11-17 01:44 app
+drwx------   2 root     root     4096 2017-11-09 02:28 app-asec
+drwxrwx--x   2 system   system   4096 2017-11-09 02:28 app-ephemeral
+drwxrwx--x   2 system   system   4096 2017-11-09 02:28 app-lib
+drwxrwx--x   2 system   system   4096 2017-11-09 02:28 app-private
+drwx------   5 system   system   4096 2017-11-17 01:44 backup
+drwxrwxrwx   4 root     root     4096 2017-11-09 02:28 benchmarktest
+drwxr-xr-x   2 shell    shell    4096 2017-11-09 02:28 bootchart
+drwxrwx---   5 system   cache    4096 2017-11-09 02:28 cache
+drwxrwx--x   3 root     root     4096 2017-11-09 02:28 dalvik-cache
+drwxrwx--x 126 system   system   8192 2017-11-17 00:42 data
+drwxrwx---   2 drm      drm      4096 2017-11-09 02:28 drm
+drwxr-x--x   3 root     root     4096 2017-11-09 02:28 local
+drwxrwx---   2 root     root     4096 2017-11-09 02:28 lost+found
+drwxrwx---   4 media_rw media_rw 4096 2017-11-09 02:29 media
+drwxrwx---   2 mediadrm mediadrm 4096 2017-11-09 02:28 mediadrm
+drwxrwx--t  30 system   misc     4096 2017-11-09 02:28 misc
+drwxrwx--t   3 system   misc     4096 2017-11-09 02:29 misc_ce
+drwxrwx--t   3 system   misc     4096 2017-11-09 02:28 misc_de
+drwxrwxrwx  13 root     root     4096 2017-11-09 02:28 nativetest
+drwxrwx--x   2 root     root     4096 2017-11-09 02:28 ota
+drwxrwx---   2 system   cache    4096 2017-11-09 02:28 ota_package
+drwx------   2 root     root     4096 2017-11-17 00:42 property
+drwxrwx--x   2 system   system   4096 2017-11-09 02:28 resource-cache
+drwx--x--x   2 system   system   4096 2017-11-09 02:28 security
+drwx------   2 system   system   4096 2017-11-09 02:28 ss
+drwxrwxr-x  14 system   system   4096 2017-11-17 01:44 system
+drwxrwx---   3 system   system   4096 2017-11-09 02:29 system_ce
+drwxrwx---   3 system   system   4096 2017-11-09 02:28 system_de
+drwxrwx--x   2 system   system   4096 2017-11-09 02:28 tombstones
+drwx--x--x   2 system   system   4096 2017-11-09 02:28 user
+drwx--x--x   3 system   system   4096 2017-11-09 02:28 user_de
+drwxr-xr-x   3 root     root     4096 2017-11-09 02:28 var
+generic_x86:/data # cd data
+generic_x86:/data/data # ls -l
+total 1984
+drwx------  4 system  system  4096 2017-11-17 00:42 android
+drwx------  4 u0_a0   u0_a0   4096 2017-11-09 02:29 com.android.backupconfirm
+drwx------  4 u0_a32  u0_a32  4096 2017-11-09 02:29 com.android.bookmarkprovider
+drwx------  4 u0_a46  u0_a46  4096 2017-11-09 02:29 com.android.calculator2
+drwx------  5 u0_a35  u0_a35  4096 2017-11-17 00:42 com.android.camera2
+drwx------  4 u0_a36  u0_a36  4096 2017-11-09 02:29 com.android.captiveportallogin
+drwx------  4 u0_a3   u0_a3   4096 2017-11-09 02:29 com.android.carrierconfig
+drwx------  4 u0_a4   u0_a4   4096 2017-11-09 02:29 com.android.cellbroadcastreceiver
+drwx------  4 u0_a37  u0_a37  4096 2017-11-09 02:29 com.android.certinstaller
+drwx------ 10 u0_a38  u0_a38  4096 2017-11-17 00:42 com.android.chrome
+drwx------  4 u0_a6   u0_a6   4096 2017-11-09 02:29 com.android.contacts
+drwx------  4 u0_a39  u0_a39  4096 2017-11-09 02:29 com.android.cts.ctsshim
+drwx------  4 u0_a7   u0_a7   4096 2017-11-09 02:29 com.android.cts.priv.ctsshim
+drwx------  4 u0_a40  u0_a40  4096 2017-11-09 02:29 com.android.customlocale2
+drwx------  4 u0_a8   u0_a8   4096 2017-11-17 00:42 com.android.defcontainer
+drwx------  6 u0_a41  u0_a41  4096 2017-11-09 02:29 com.android.deskclock
+drwx------  4 u0_a42  u0_a42  4096 2017-11-09 02:29 com.android.development
+drwxr-x--x  7 u0_a9   u0_a9   4096 2017-11-09 02:29 com.android.dialer
+drwx------  5 u0_a10  u0_a10  4096 2017-11-09 02:53 com.android.documentsui
+drwx------  4 u0_a31  u0_a31  4096 2017-11-09 02:29 com.android.dreams.basic
+drwx------  4 u0_a44  u0_a44  4096 2017-11-09 02:29 com.android.egg
+drwx------  4 u0_a12  u0_a12  4096 2017-11-09 02:29 com.android.emergency
+drwx------  4 u0_a45  u0_a45  4096 2017-11-09 02:29 com.android.emulator.smoketests
+drwx------  4 u0_a13  u0_a13  4096 2017-11-09 02:29 com.android.externalstorage
+drwx------  4 u0_a47  u0_a47  4096 2017-11-09 02:29 com.android.fallback
+drwx------  5 u0_a48  u0_a48  4096 2017-11-17 00:42 com.android.gallery3d
+drwxr-x--x  4 u0_a79  u0_a79  4096 2017-11-09 02:29 com.android.gesture.builder
+drwxr-x--x  4 u0_a53  u0_a53  4096 2017-11-09 02:29 com.android.htmlviewer
+drwx------  4 system  system  4096 2017-11-17 00:42 com.android.inputdevices
+drwxr-x--x  4 u0_a55  u0_a55  4096 2017-11-17 00:42 com.android.inputmethod.latin
+drwx------  5 system  system  4096 2017-11-17 00:42 com.android.keychain
+drwx------  4 system  system  4096 2017-11-17 00:42 com.android.location.fused
+drwx------  5 u0_a20  u0_a20  4096 2017-11-09 02:29 com.android.managedprovisioning
+drwx------  4 radio   radio   4096 2017-11-09 02:29 com.android.mms.service
+drwx------  5 u0_a11  u0_a11  4096 2017-11-17 00:42 com.android.mtp
+drwx------  4 u0_a60  u0_a60  4096 2017-11-09 02:29 com.android.netspeed
+drwx------  4 u0_a64  u0_a64  4096 2017-11-17 00:42 com.android.pacprocessor
+drwxr-x--x  4 radio   radio   4096 2017-11-09 02:29 com.android.phone
+drwx------  6 u0_a69  u0_a69  4096 2017-11-17 00:42 com.android.printspooler
+drwx------  4 u0_a70  u0_a70  4096 2017-11-09 02:29 com.android.protips
+drwx------  4 u0_a1   u0_a1   4096 2017-11-09 02:29 com.android.providers.blockednumber
+drwx------  6 u0_a2   u0_a2   4096 2017-11-09 02:29 com.android.providers.calendar
+drwx------  7 u0_a1   u0_a1   4096 2017-11-09 02:29 com.android.providers.contacts
+drwx------  6 u0_a11  u0_a11  4096 2017-11-17 00:42 com.android.providers.downloads
+drwx------  4 u0_a11  u0_a11  4096 2017-11-17 00:42 com.android.providers.downloads.ui
+drwx------  6 u0_a11  u0_a11  4096 2017-11-17 00:42 com.android.providers.media
+drwxr-x--x  6 u0_a65  u0_a65  4096 2017-11-14 02:51 com.android.providers.partnerbookmarks
+drwx------  4 system  system  4096 2017-11-17 00:42 com.android.providers.settings
+drwx------  4 radio   radio   4096 2017-11-09 02:29 com.android.providers.telephony
+drwx------  5 u0_a1   u0_a1   4096 2017-11-14 01:56 com.android.providers.userdictionary
+drwx------  4 u0_a22  u0_a22  4096 2017-11-09 02:29 com.android.proxyhandler
+drwx------  4 u0_a23  u0_a23  4096 2017-11-09 02:29 com.android.sdksetup
+drwx------  4 system  system  4096 2017-11-17 00:42 com.android.server.telecom
+drwx------  4 system  system  4096 2017-11-17 00:42 com.android.settings
+drwx------  4 u0_a25  u0_a25  4096 2017-11-09 02:29 com.android.sharedstoragebackup
+drwx------  4 shell   shell   4096 2017-11-09 02:29 com.android.shell
+drwxr-x--x  4 u0_a81  u0_a81  4096 2017-11-09 02:29 com.android.smoketest
+drwxr-x--x  4 u0_a80  u0_a80  4096 2017-11-09 02:29 com.android.smoketest.tests
+drwx------  4 u0_a26  u0_a26  4096 2017-11-09 02:29 com.android.statementservice
+drwx------  4 u0_a27  u0_a27  4096 2017-11-09 02:29 com.android.storagemanager
+drwx------  4 u0_a28  u0_a28  4096 2017-11-09 02:29 com.android.systemui
+drwx------  4 u0_a56  u0_a56  4096 2017-11-09 02:29 com.android.vending
+drwx------  4 u0_a30  u0_a30  4096 2017-11-09 02:29 com.android.vpndialogs
+drwx------  4 u0_a57  u0_a57  4096 2017-11-09 02:29 com.android.wallpaper.livepicker
+drwx------  4 system  system  4096 2017-11-17 00:42 com.android.wallpaperbackup
+drwx------  4 u0_a83  u0_a83  4096 2017-11-09 02:29 com.android.widgetpreview
+drwx------  4 u0_a73  u0_a73  4096 2017-11-17 00:42 com.breel.geswallpapers
+drwxr-x--x  4 u0_a77  u0_a77  4096 2017-11-09 02:29 com.example.android.apis
+drwx------  4 u0_a78  u0_a78  4096 2017-11-09 02:29 com.example.android.livecubes
+drwx------  4 u0_a82  u0_a82  4096 2017-11-09 02:29 com.example.android.softkeyboard
+drwx------  7 u0_a43  u0_a43  4096 2017-11-17 00:42 com.google.android.apps.docs
+drwx------ 10 u0_a58  u0_a58  4096 2017-11-17 00:42 com.google.android.apps.maps
+drwx------  7 u0_a67  u0_a67  4096 2017-11-17 00:42 com.google.android.apps.messaging
+drwx------  7 u0_a21  u0_a21  4096 2017-11-09 02:29 com.google.android.apps.nexuslauncher
+drwx------  7 u0_a66  u0_a66  4096 2017-11-17 00:42 com.google.android.apps.photos
+drwx------  5 u0_a72  u0_a72  4096 2017-11-09 02:29 com.google.android.apps.wallpaper
+drwxr-x--x  4 u0_a62  u0_a62  4096 2017-11-09 02:29 com.google.android.apps.wallpaper.nexus
+drwx------  5 u0_a14  u0_a14  4096 2017-11-17 00:42 com.google.android.backuptransport
+drwx------  7 u0_a34  u0_a34  4096 2017-11-09 02:29 com.google.android.calendar
+drwx------  6 u0_a5   u0_a5   4096 2017-11-09 02:29 com.google.android.configupdater
+drwx------  4 u0_a15  u0_a15  4096 2017-11-09 02:29 com.google.android.ext.services
+drwx------  4 u0_a50  u0_a50  4096 2017-11-09 02:29 com.google.android.ext.shared
+drwxr-x--x  4 u0_a16  u0_a16  4096 2017-11-09 02:29 com.google.android.feedback
+drwx------  7 u0_a68  u0_a68  4096 2017-11-09 02:29 com.google.android.gm
+drwxr-x--x 18 u0_a14  u0_a14  4096 2017-11-17 00:42 com.google.android.gms
+drwx------ 14 u0_a29  u0_a29  4096 2017-11-17 00:42 com.google.android.googlequicksearchbox
+drwx------  8 u0_a14  u0_a14  4096 2017-11-17 00:42 com.google.android.gsf
+drwxr-x--x  4 u0_a14  u0_a14  4096 2017-11-17 00:42 com.google.android.gsf.login
+drwx------  8 u0_a59  u0_a59  4096 2017-11-09 02:29 com.google.android.music
+drwx------  4 u0_a61  u0_a61  4096 2017-11-09 02:29 com.google.android.nexusicons
+drwx------  5 u0_a17  u0_a17  4096 2017-11-09 02:29 com.google.android.onetimeinitializer
+drwx------  4 u0_a18  u0_a18  4096 2017-11-09 02:29 com.google.android.packageinstaller
+drwx------  6 u0_a19  u0_a19  4096 2017-11-09 02:29 com.google.android.partnersetup
+drwx------  4 u0_a51  u0_a51  4096 2017-11-09 02:29 com.google.android.printservice.recommendation
+drwx------  5 u0_a24  u0_a24  4096 2017-11-09 02:29 com.google.android.setupwizard
+drwxr-x--x  5 u0_a49  u0_a49  4096 2017-11-09 02:29 com.google.android.syncadapters.contacts
+drwx------  7 u0_a54  u0_a54  4096 2017-11-17 00:42 com.google.android.talk
+drwx------  4 u0_a52  u0_a52  4096 2017-11-17 00:42 com.google.android.tts
+drwx------  8 u0_a71  u0_a71  4096 2017-11-17 00:42 com.google.android.videos
+drwx------  4 u0_a75  u0_a75  4096 2017-11-17 00:42 com.google.android.webview
+drwx------  7 u0_a76  u0_a76  4096 2017-11-17 00:42 com.google.android.youtube
+drwx------  4 u0_a74  u0_a74  4096 2017-11-09 02:29 com.ustwo.lwp
+drwx------  4 u0_a87  u0_a87  4096 2017-11-09 03:10 com.yr.aa
+drwx------  4 u0_a96  u0_a96  4096 2017-11-14 01:02 com.yr.activityforresult
+drwx------  5 u0_a103 u0_a103 4096 2017-11-17 00:42 com.yr.databasetest01
+drwx------  4 u0_a94  u0_a94  4096 2017-11-13 02:39 com.yr.datepickerdialog
+drwx------  4 u0_a93  u0_a93  4096 2017-11-13 02:21 com.yr.explicitintent
+drwx------  5 u0_a102 u0_a102 4096 2017-11-16 03:11 com.yr.filetest01
+drwx------  4 u0_a89  u0_a89  4096 2017-11-10 00:38 com.yr.fragmenttest1
+drwx------  4 u0_a90  u0_a90  4096 2017-11-10 00:49 com.yr.fragmenttest2
+drwx------  4 u0_a91  u0_a91  4096 2017-11-10 03:14 com.yr.fragmenttest4
+drwx------  4 u0_a84  u0_a84  4096 2017-11-09 02:29 com.yr.graphicshape1
+drwx------  4 u0_a85  u0_a85  4096 2017-11-09 03:19 com.yr.graphictext
+drwx------  4 u0_a88  u0_a88  4096 2017-11-09 03:28 com.yr.graphictext1
+drwx------  4 u0_a97  u0_a97  4096 2017-11-14 02:37 com.yr.implicitintent
+drwx------  4 u0_a98  u0_a98  4096 2017-11-14 03:03 com.yr.lifecycle
+drwx------  4 u0_a92  u0_a92  4096 2017-11-10 03:38 com.yr.materialtest
+drwx------  4 u0_a95  u0_a95  4096 2017-11-13 03:55 com.yr.multipage
+drwx------  5 u0_a100 u0_a100 4096 2017-11-16 01:49 com.yr.myapplication
+drwx------  4 u0_a86  u0_a86  4096 2017-11-09 03:05 com.yr.myarc
+drwx------  5 u0_a101 u0_a101 4096 2017-11-16 02:47 com.yr.preftest02
+drwx------  4 u0_a99  u0_a99  4096 2017-11-14 03:24 com.yr.saverestore
+drwx------  4 u0_a63  u0_a63  4096 2017-11-17 00:42 jp.co.omronsoft.openwnn
+drwx------  4 u0_a33  u0_a33  4096 2017-11-09 02:29 org.chromium.webview_shell
+generic_x86:/data/data # cd com.yr.databasetest01/
+generic_x86:/data/data/com.yr.databasetest01 # ls
+cache code_cache databases
+generic_x86:/data/data/com.yr.databasetest01 # cd databases/
+generic_x86:/data/data/com.yr.databasetest01/databases # ls -l
+total 80
+-rw-rw---- 1 u0_a103 u0_a103 20480 2017-11-17 01:43 mycontacts.db
+-rw------- 1 u0_a103 u0_a103 16928 2017-11-17 01:43 mycontacts.db-journal
+generic_x86:/data/data/com.yr.databasetest01/databases # chmod 777 *
+generic_x86:/data/data/com.yr.databasetest01/databases # ls -l
+total 80
+-rwxrwxrwx 1 u0_a103 u0_a103 20480 2017-11-17 01:43 mycontacts.db
+-rwxrwxrwx 1 u0_a103 u0_a103 16928 2017-11-17 01:43 mycontacts.db-journal
+generic_x86:/data/data/com.yr.databasetest01/databases # sqlite3 mycontac
+mycontacts.db          mycontacts.db-journal
+generic_x86:/data/data/com.yr.databasetest01/databases # sqlite3 mycontacts.db
+SQLite version 3.9.2 2015-11-02 18:31:45
+Enter ".help" for usage hints.
+sqlite> .table
+android_metadata  contacts
+sqlite> .schema
+CREATE TABLE android_metadata (locale TEXT);
+CREATE TABLE contacts ( _id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, tel TEXT);
+sqlite> .schema contacts
+CREATE TABLE contacts ( _id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, tel TEXT);
+sqlite> select * from contacts;
+1|jeong|01011111111
+sqlite> drop table contacts;
+sqlite> .tables
+android_metadata
+sqlite> create table contacts (_id INTEGER, name TEXT, tel TEXT);
+sqlite> .tables
+android_metadata  contacts
+sqlite> .schema contacts
+CREATE TABLE contacts (_id INTEGER, name TEXT, tel TEXT);
+sqlite> insert into contacts values(1, 'jeong', '010-1111-1111');
+sqlite> select * from contacts;
+1|jeong|010-1111-1111
+sqlite> .exit
+1|generic_x86:/data/data/com.yr.databasetest01/databases #
